@@ -1,1 +1,124 @@
-FILE:asf-mental
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ASF Mental — ASF</title>
+<meta name="description" content="Mindset, respiração e psicologia do esporte para surfistas">
+<style>
+:root{--rosa:#ff4d8d;--roxo:#7b2ff7;--areia:#fff5ec;--mar:#00c2cb}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui,sans-serif}
+body{background:linear-gradient(160deg,#fff5ec,#ffe3f1 60%,#e0f7fa);min-height:100vh;color:#333}
+header{background:linear-gradient(90deg,var(--rosa),var(--roxo));color:#fff;padding:2rem 1rem;text-align:center}
+header h1{font-size:2rem} header p{opacity:.9;margin-top:.4rem}
+nav{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center;padding:.8rem;background:#fff;box-shadow:0 2px 8px #0001;position:sticky;top:0;z-index:10}
+nav a{background:var(--areia);border:1px solid #ffd3e6;color:#c2185b;padding:.3rem .7rem;border-radius:20px;font-size:.78rem;text-decoration:none}
+nav a:hover{background:var(--rosa);color:#fff}
+main{max-width:760px;margin:1.5rem auto;padding:0 1rem}
+.card{background:#fff;border-radius:16px;padding:1.4rem;box-shadow:0 4px 16px #7b2ff720;margin-bottom:1.2rem}
+.card h2{color:var(--roxo);margin-bottom:.6rem;font-size:1.2rem}
+button{background:linear-gradient(90deg,var(--rosa),var(--roxo));color:#fff;border:none;padding:.6rem 1.2rem;border-radius:24px;font-size:1rem;cursor:pointer}
+button:hover{opacity:.85}
+input,select,textarea{padding:.5rem;border:1px solid #ddd;border-radius:10px;width:100%;margin:.3rem 0;font-size:1rem}
+.xp{position:fixed;bottom:1rem;right:1rem;background:#fff;border:2px solid var(--rosa);border-radius:24px;padding:.4rem 1rem;font-weight:bold;color:var(--roxo);box-shadow:0 4px 12px #0002}
+footer{text-align:center;padding:2rem;font-size:.8rem;color:#888}
+</style>
+<link rel="canonical" href="https://acarolmourad-commits.github.io/asf-mental/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"ASF Mental","url":"https://acarolmourad-commits.github.io/asf-mental/","applicationCategory":"SportsApplication","operatingSystem":"Web","inLanguage":"pt-BR","isPartOf":{"@type":"WebSite","name":"ASF — Associação Surf Feminino","url":"https://acarolmourad-commits.github.io/asf-app/"}}
+</script>
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ASF Mental — ASF">
+    <meta property="og:description" content="Mindset, respiração e psicologia do esporte para surfistas">
+    <meta property="og:url" content="https://acarolmourad-commits.github.io/asf-mental/">
+    <meta property="og:image" content="https://acarolmourad-commits.github.io/asf-app/assets/images/asf-logo.png">
+    <meta name="twitter:card" content="summary">
+</head>
+<body>
+<header><h1>🧠 ASF Mental</h1><p>Mindset, respiração e psicologia do esporte para surfistas</p></header>
+<nav><a href="https://acarolmourad-commits.github.io/asf-app/">🏄‍♀️ ASF App</a>
+<a href="https://acarolmourad-commits.github.io/asf-praias/">Praias</a>
+<a href="https://acarolmourad-commits.github.io/asf-previsao/">Previsao</a>
+<a href="https://acarolmourad-commits.github.io/asf-treino/">Treino</a>
+<a href="https://acarolmourad-commits.github.io/asf-eventos/">Eventos</a>
+<a href="https://acarolmourad-commits.github.io/asf-glossario/">Glossario</a>
+<a href="https://acarolmourad-commits.github.io/asf-seguranca/">Seguranca</a>
+<a href="https://acarolmourad-commits.github.io/asf-comunidade/">Comunidade</a>
+<a href="https://acarolmourad-commits.github.io/asf-equipamento/">Equipamento</a>
+<a href="https://acarolmourad-commits.github.io/asf-quiz/">Quiz</a>
+<a href="https://acarolmourad-commits.github.io/asf-nutricao/">Nutricao</a>
+<a href="https://acarolmourad-commits.github.io/asf-historia/">Historia</a>
+<a href="https://acarolmourad-commits.github.io/asf-viagens/">Viagens</a>
+<a href="https://acarolmourad-commits.github.io/asf-bemestar/">Bemestar</a>
+<a href="https://acarolmourad-commits.github.io/asf-diario/">Diario</a>
+<a href="https://acarolmourad-commits.github.io/asf-eco/">Eco</a>
+<a href="https://acarolmourad-commits.github.io/asf-kids/">Kids</a>
+<a href="https://acarolmourad-commits.github.io/asf-ranking/">Ranking</a>
+<a href="https://acarolmourad-commits.github.io/asf-respira/">Respira</a>
+<a href="https://acarolmourad-commits.github.io/asf-sos/">Sos</a>
+<a href="https://acarolmourad-commits.github.io/asf-volume/">Volume</a>
+<a href="https://acarolmourad-commits.github.io/asf-yoga/">Yoga</a></nav>
+<main>
+<div class="card"><h2>Visualização Guiada 🌊</h2><p>2 minutos para visualizar sua onda perfeita antes de entrar no mar.</p>
+<h3 id="t" style="text-align:center;font-size:2rem">2:00</h3><p id="msg" style="text-align:center;font-style:italic"></p>
+<div style="text-align:center"><button onclick="start()">Começar</button></div></div>
+<div class="card"><h2>💜 Afirmação do dia</h2><p id="aff" style="font-size:1.1rem;font-style:italic"></p><button onclick="aff()" style="margin-top:.5rem">Nova afirmação</button></div>
+<div class="card"><p>Combine com respiração: <a href='https://acarolmourad-commits.github.io/asf-respira/'>ASF Respira</a></p></div>
+<div class="card"><h2>🌬️ Respiração</h2><p>As técnicas de respiração (4-4-4, 4-7-8 e abdominal) estão com timer guiado no <a href="https://acarolmourad-commits.github.io/asf-respira/">ASF Respira</a>.</p></div>
+<div class="card"><h2>🧘 Meditação</h2>
+<p><b>Escaneamento corporal</b> — deitada, olhos fechados, passe a atenção pelos pés, pernas, barriga, braços e cabeça. Libera tensão muscular e mental. ⏱️ 5 min, em casa.</p>
+<p><b>Meditação do amanhecer</b> — sente na areia antes do sol nascer, feche os olhos e sinta o ambiente. Energiza a mente para o surf. ⏱️ 10 min, na praia.</p>
+<p><b>Meditação com sons da natureza</b> — ouça sons do mar, ondas e pássaros, focando só no som. Relaxamento profundo e conexão com a natureza. ⏱️ 5–15 min, em qualquer lugar.</p></div>
+<div class="card"><h2>🧪 Visualização</h2>
+<p><b>Visualização da onda perfeita</b> — use a Visualização Guiada aqui em cima desta página (2 min com timer). 🌊</p>
+<p><b>Visualização de sucesso</b> — imagine-se executando nos mínimos detalhes a manobra que quer aprender. Programação mental para o sucesso. ⏱️ 5 min, antes de dormir.</p></div>
+<div class="card"><h2>😌 Relaxamento</h2>
+<p><b>Liberação de tensão nos ombros</b> — levante os ombros até as orelhas, segure 5s, solte de uma vez: 5x. Remove a tensão acumulada ao remar. ⏱️ 2 min, na areia.</p>
+<p><b>Liberação de tensão no rosto</b> — faça uma careta exagerada (abra a boca, feche os olhos), segure 5s e relaxe. Repita. ⏱️ 1 min, em qualquer lugar.</p>
+<p><b>Postura do Wolverine (Yogi Mudra)</b> — sentada, una as plantas dos pés, segure os pés com as mãos e incline-se para frente. Acalma a mente e alivia o estresse. ⏱️ 2 min, na areia.</p></div>
+<div class="card"><h2>🌿 Mindfulness</h2>
+<p><b>Foco no presente</b> — quando a mente divagar, olhe para um ponto (horizonte, água, areia) e foque só nisso. Corta a espiral de pensamentos ansiosos. ⏱️ 30s, na água.</p>
+<p><b>Bondade consigo mesma</b> — mão no coração e diga: "Eu estou bem do jeito que sou". Aumenta a autoestima e reduz a autocrítica. ⏱️ 1 min, qualquer momento.</p>
+<p><b>Sinta a água</b> — antes de remar, feche os olhos por 10s e sinta a água, o movimento e a temperatura. A conexão com a natureza acalma. ⏱️ 10s, na água.</p></div>
+<div class="card"><h2>💪 Afirmações</h2>
+<p><b>Afirmações matinais</b> — diga em voz alta: "Eu sou uma surfista poderosa", "Eu confio no meu corpo", "Eu estou em paz". ⏱️ 2 min, pela manhã. E use a Afirmação do dia aqui do app! 💜</p>
+<p><b>Frases para a água</b> — quando sentir medo: "Eu sou capaz", "Uma onda de cada vez", "Eu pertenço a este mar". Autoconforto nos momentos difíceis.</p></div>
+<div class="card"><h2>🌐 Ecossistema ASF</h2><p>Este app faz parte da constelação ASF — Associação de Surf Feminino. Ganhe XP aqui e veja seu progresso no <a href="https://acarolmourad-commits.github.io/asf-ranking/">ASF Ranking</a>. App principal: <a href="https://acarolmourad-commits.github.io/asf-app/">ASF App</a>.</p></div>
+</main>
+<div class="xp">⭐ XP: <span id="xp">0</span></div>
+<footer>ASF — Associação de Surf Feminino · Feito com 🌊 e 💜 · <a href="https://acarolmourad-commits.github.io/asf-app/">asf-app</a></footer>
+<script>
+const XP=()=>parseInt(localStorage.getItem('asf_xp')||'0');
+function addXP(n){localStorage.setItem('asf_xp',XP()+n);document.getElementById('xp').textContent=XP();}
+document.getElementById('xp').textContent=XP();
+const A=['Eu pertenço ao mar.','Minha calma é maior que qualquer onda.','Cada queda me ensina.','Eu surfo por mim.','Medo é energia: eu transformo em foco.','O oceano me fortalece.'];function aff(){document.getElementById('aff').textContent='"'+A[Math.floor(Math.random()*A.length)]+'"';}aff();let on=false;const M=['Sinta a água...','Veja a onda chegando...','Remada forte e confiante...','Em pé. Equilíbrio.','Você voa na parede da onda...'];function start(){if(on)return;on=true;let s=120;const t=setInterval(()=>{s--;document.getElementById('t').textContent=Math.floor(s/60)+':'+String(s%60).padStart(2,'0');document.getElementById('msg').textContent=M[Math.floor((120-s)/25)%M.length];if(s<=0){clearInterval(t);document.getElementById('msg').textContent='Mente pronta. Bora pro mar! 🌊';addXP(15);on=false;}},1000);}
+</script>
+
+<!-- ASF Ecossistema Nav v3 (rede completa, 23 sites) -->
+<script>
+(function(){
+  function injectNav(){
+    if(document.querySelector('.asf-sat-nav'))return;
+    var old=document.querySelector('.asf-rede-nav');if(old)old.remove();
+    var sites=[["asf-app","\u{1F30A} App"],["asf-praias","\u{1F3D6}\uFE0F Praias"],["asf-previsao","\u{1F4C8} Previs\u00E3o"],["asf-treino","\u{1F3CB}\uFE0F Treino"],["asf-eventos","\u{1F4C5} Eventos"],["asf-glossario","\u{1F4D6} Gloss\u00E1rio"],["asf-comunidade","\u{1F4AC} Comunidade"],["asf-seguranca","\u{1F6FA} Seguran\u00E7a"],["asf-equipamento","\u{1F3C4}\u200D\u2640\uFE0F Equipamento"],["asf-quiz","\u{1F9E0} Quiz"],["asf-nutricao","\u{1F957} Nutri\u00E7\u00E3o"],["asf-viagens","\u{2708}\uFE0F Viagens"],["asf-historia","\u{1F3C6} Hist\u00F3ria"],["asf-bemestar","\u{1F9D8}\u200D\u2640\uFE0F Bem-estar"],["asf-ranking","\u{1F947} Ranking"],["asf-diario","\u{1F4D3} Di\u00E1rio"],["asf-respira","\u{1FAC1} Respira"],["asf-volume","\u{1F4D0} Volume"],["asf-yoga","\u{1F9D8} Yoga"],["asf-sos","\u{1F198} SOS"],["asf-eco","\u{1F331} Eco"],["asf-kids","\u{1F9D2} Kids"],["asf-mental","\u{1F9E0} Mental"]];
+    var nav=document.createElement('nav');
+    nav.className='asf-sat-nav';
+    nav.setAttribute('aria-label','Ecossistema ASF');
+    nav.style.cssText='background:linear-gradient(135deg,#0ea5e9,#6366f1);padding:.6rem 1rem;display:flex;flex-wrap:wrap;gap:.35rem;justify-content:center;position:sticky;top:0;z-index:10000;';
+    sites.forEach(function(s){
+      var a=document.createElement('a');
+      a.href='https://acarolmourad-commits.github.io/'+s[0]+'/';
+      a.textContent=s[1];
+      a.style.cssText='color:#e0f2fe;text-decoration:none;font-weight:600;font-size:.75rem;padding:.28rem .55rem;border-radius:999px;background:rgba(255,255,255,.12);font-family:inherit;';
+      a.onmouseover=function(){a.style.background='rgba(255,255,255,.35)';};
+      a.onmouseout=function(){a.style.background='rgba(255,255,255,.12)';};
+      nav.appendChild(a);
+    });
+    document.body.insertBefore(nav,document.body.firstChild);
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',injectNav);}else{injectNav();}
+})();
+</script>
+</body>
+</html>
