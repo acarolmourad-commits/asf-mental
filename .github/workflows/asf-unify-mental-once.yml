@@ -1,0 +1,75 @@
+name: ASF Mental guide consolidation once
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/asf-unify-mental-once.yml]
+permissions:
+  contents: write
+jobs:
+  consolidate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Integrate approved guide preserving existing app
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import subprocess
+          p = Path('index.html')
+          assert subprocess.check_output(['git','hash-object','index.html'], text=True).strip() == '3a0ae2aa4eb1eecd8ea46eaed35df18aa424594b', 'Baseline changed; stop rather than overwrite'
+          s = p.read_text()
+          guide = '''<section class="card" id="mental-de-competidora" aria-labelledby="mental-guia-titulo">
+          <p class="guide-label">📖 GUIA · ASF MENTAL</p>
+          <h2 id="mental-guia-titulo">🧠 Mental de Competidora: Técnicas de Visualização</h2>
+          <p>Um roteiro de preparação mental para treinar atenção, confiança e resposta aos imprevistos. Não é preciso imaginar uma bateria perfeita: pratique decisões realistas e aquilo que está sob seu controle.</p>
+          <h3>1. Filme mental: visualize o processo</h3>
+          <p>Em casa ou sentada em um local seguro em terra firme, imagine uma sequência em primeira pessoa: observar o mar, escolher o posicionamento, remar, levantar e conduzir uma manobra compatível com seu nível. Perceba os sons, os movimentos e a sensação de equilíbrio. Termine imaginando como retomar o foco depois de uma queda ou de uma onda perdida.</p>
+          <p>Reserve de 2 a 5 minutos antes de dormir ou antes da competição. Use o <a href="#visualizacao-guiada">timer de visualização guiada de 2 minutos</a> deste app para começar; mantenha a respiração natural.</p>
+          <h3>2. Respiração confortável, somente fora da água</h3>
+          <p>Experimente alguns ciclos de respiração lenta e confortável, sem forçar ou prender o ar. Para praticar com timer e conhecer as técnicas, acesse o <a href="https://acarolmourad-commits.github.io/asf-respira/">ASF Respira</a>. Se optar pela respiração box (4-4-4-4), as pausas são opcionais: adapte ou evite se houver desconforto.</p>
+          <p><strong>Segurança:</strong> faça exercícios respiratórios e visualizações de olhos fechados somente fora da água, em local seguro. Não pratique retenções ou hiperventilação no mar. Pare se sentir tontura ou falta de ar. Essas práticas não substituem acompanhamento psicológico ou médico e não garantem redução de ansiedade ou resultados esportivos.</p>
+          <h3>3. Ancoragem positiva</h3>
+          <p>Recorde uma sessão em que você se sentiu preparada e presente. Associe essa lembrança a um gesto simples, como encostar a mão no peito, e a uma palavra-chave, como “presença”. Repita no treino e use antes da bateria como lembrete de confiança, sem exigir um estado emocional perfeito.</p>
+          <h3>4. Foco no processo, não no resultado</h3>
+          <p>Troque “preciso ganhar” por uma ação observável: “vou ler o mar antes de remar”, “vou escolher uma onda adequada” ou “vou recuperar o foco após cada tentativa”. Defina uma ou duas metas compatíveis com as condições e com seu nível. Um bom processo não garante vitória; ele ajuda a orientar suas escolhas.</p>
+          <h3>5. Rotina pré-bateria: um roteiro de 15 minutos</h3>
+          <ol>
+          <li><strong>15 minutos antes:</strong> confira as condições, o equipamento e o plano; faça alguns ciclos confortáveis de respiração em terra firme.</li>
+          <li><strong>10 minutos antes:</strong> aqueça progressivamente, sem forçar alongamentos, de acordo com sua preparação.</li>
+          <li><strong>5 minutos antes:</strong> visualize a sequência de decisões e como responder a um imprevisto. Use o timer de 2 minutos se for útil.</li>
+          <li><strong>2 minutos antes:</strong> use sua âncora positiva e relembre uma meta de processo.</li>
+          <li><strong>Hora da bateria:</strong> mantenha os olhos abertos, respeite as condições e ajuste o plano. Segurança vem antes do desempenho.</li>
+          </ol>
+          <p>Depois da bateria, registre uma decisão que funcionou e um aprendizado para o próximo treino. Ajuste o roteiro à sua realidade e às orientações da equipe técnica.</p>
+          <p class="guide-actions"><a href="#visualizacao-guiada">Começar a visualização de 2 minutos ↓</a> · <a href="https://asf.surf/">Voltar à home ASF</a></p>
+          </section>
+          '''
+          css = '''
+          /* Guia Mental de Competidora */
+          #mental-de-competidora,#visualizacao-guiada{scroll-margin-top:8rem}
+          #mental-de-competidora p,#mental-de-competidora li{line-height:1.7;margin:.7rem 0}
+          #mental-de-competidora h3{font-size:1.05rem;color:var(--roxo);margin:1.2rem 0 .4rem}
+          #mental-de-competidora ol{padding-left:1.4rem}
+          #mental-de-competidora a{color:#6330b5;text-decoration:underline;text-underline-offset:3px}
+          #mental-de-competidora a:focus-visible{outline:3px solid var(--mar);outline-offset:4px}
+          .guide-label{font-size:.8rem;font-weight:700;color:#6330b5}
+          .guide-actions{font-weight:600}
+          '''
+          assert s.count('<main>') == 1
+          assert s.count('<div class="card"><h2>Visualização Guiada 🌊</h2>') == 1
+          s = s.replace('</style>', css + '</style>', 1).replace('<main>', '<main>\n' + guide, 1).replace('<div class="card"><h2>Visualização Guiada 🌊</h2>', '<div class="card" id="visualizacao-guiada"><h2>Visualização Guiada 🌊</h2>', 1)
+          assert s.count('id="mental-de-competidora"') == 1
+          assert 'function start()' in s and 'function addXP(n)' in s
+          p.write_text(s)
+          PY
+      - name: Commit localized changes
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html
+          git commit -m 'feat: consolidate competitor visualization guide in ASF Mental'
+          git pull --rebase origin main
+          git push origin HEAD:main
